@@ -88,31 +88,41 @@ public class CartFragment extends Fragment implements CartListAdapter.CartInterf
                             price[0] = price[0] - price[0] *0.2;
 
                             fragmentCartBinding.orderTotalText.setText("20% Discount Applied and you get a Coke free: ");
-                            fragmentCartBinding.orderTotalTextView.setText("Total :  " + aDouble.toString());
+                            fragmentCartBinding.orderTotalTextView.setText("Total :  " + price[0]);
                         }
 
-                         else if (price[0] >500 && aDouble<1000 && aDouble==1){
+                         else if (price[0] >500 && price[0]<1000 && aDouble==1){
                             price[0] = price[0] - price[0] *0.1;
                             fragmentCartBinding.orderTotalText.setText("10% Discount Applied and you get a Coke free: ");
-                            fragmentCartBinding.orderTotalTextView.setText("Total :  " + aDouble.toString());
+                            fragmentCartBinding.orderTotalTextView.setText("Total :  " +price[0]);
                         }
                         else if (price[0] >1000){
                             price[0] = price[0] - price[0] *0.2;
 
                             fragmentCartBinding.orderTotalText.setText("20% Discount Applied : ");
-                            fragmentCartBinding.orderTotalTextView.setText("Total :  " + aDouble.toString());
+                            fragmentCartBinding.orderTotalTextView.setText("Total :  " +price[0]);
 
                         }
-                        else if (price[0] >500 && aDouble<1000 ) {
+                        else if (price[0] >500 && price[0]<1000 ) {
                             price[0] = price[0] - price[0] *0.1;
                             fragmentCartBinding.orderTotalText.setText("10% Discount Applied : ");
-                            fragmentCartBinding.orderTotalTextView.setText("Total :  " + aDouble.toString());
+                            fragmentCartBinding.orderTotalTextView.setText("Total :  " +price[0]);
                         }
 
                         else {
 
-                            fragmentCartBinding.orderTotalText.setText("No Discount Applicable : ");
-                            fragmentCartBinding.orderTotalTextView.setText("Total :  " + aDouble.toString());
+                           if (aDouble==1){
+                               fragmentCartBinding.orderTotalText.setText("Only free Coke : ");
+                               fragmentCartBinding.orderTotalTextView.setText("Total :  " + price[0]);
+
+                           }
+                           else{
+                               fragmentCartBinding.orderTotalText.setText("No Discount Applicable : ");
+                               fragmentCartBinding.orderTotalTextView.setText("Total :  " + price[0]);
+
+                           }
+
+
 
                         }
 

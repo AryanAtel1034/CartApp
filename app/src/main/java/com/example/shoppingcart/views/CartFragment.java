@@ -77,33 +77,34 @@ public class CartFragment extends Fragment implements CartListAdapter.CartInterf
             @Override
             public void onChanged(Double aDouble) {
 
-                double price= aDouble;
+                final double[] price = {aDouble};
 
                 shopViewModel.getTotalQuantity().observe(getViewLifecycleOwner(), new Observer<Double>() {
                     @Override
                     public void onChanged(Double aDouble) {
 
 
-                        if(price>1000 && aDouble==1 ){
-                            aDouble=aDouble-aDouble*0.2;
+                        if(price[0] >1000 && aDouble==1 ){
+                            price[0] = price[0] - price[0] *0.2;
 
                             fragmentCartBinding.orderTotalText.setText("20% Discount Applied and you get a Coke free: ");
                             fragmentCartBinding.orderTotalTextView.setText("Total :  " + aDouble.toString());
                         }
 
-                         else if (price>500 && aDouble<1000 && aDouble==1){
-                            aDouble=aDouble-aDouble*0.1;
+                         else if (price[0] >500 && aDouble<1000 && aDouble==1){
+                            price[0] = price[0] - price[0] *0.1;
                             fragmentCartBinding.orderTotalText.setText("10% Discount Applied and you get a Coke free: ");
                             fragmentCartBinding.orderTotalTextView.setText("Total :  " + aDouble.toString());
                         }
-                        else if (price>1000){
+                        else if (price[0] >1000){
+                            price[0] = price[0] - price[0] *0.2;
 
                             fragmentCartBinding.orderTotalText.setText("20% Discount Applied : ");
                             fragmentCartBinding.orderTotalTextView.setText("Total :  " + aDouble.toString());
 
                         }
-                        else if (price>500 && aDouble<1000 ) {
-                            aDouble = aDouble - aDouble * 0.1;
+                        else if (price[0] >500 && aDouble<1000 ) {
+                            price[0] = price[0] - price[0] *0.1;
                             fragmentCartBinding.orderTotalText.setText("10% Discount Applied : ");
                             fragmentCartBinding.orderTotalTextView.setText("Total :  " + aDouble.toString());
                         }
